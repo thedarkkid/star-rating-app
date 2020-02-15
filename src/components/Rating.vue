@@ -1,12 +1,11 @@
 <template>
     <div class="rating">
         <ul class="list">
-            <li v-for="star in maxStars" :key="star" :class="{'active': star <= stars}" class="star">
+            <li v-test="{ id: 'star'}" v-for="star in maxStars" :key="star" :class="{'active': star <= stars}" class="star">
                 <icon @click="rate(star)" name="star"></icon>
             </li>
         </ul>
         <span v-if="hasCounter">{{ counter }}</span>
-        <HelloWorld />
     </div>
 
 </template>
@@ -14,9 +13,11 @@
 <script>
     import 'vue-awesome/icons/star'
     import Icon from 'vue-awesome/components/Icon'
-    import HelloWorld from "./HelloWorld";
+    import Test from '@/directives/test'
+
     export default {
-        components: { Icon, HelloWorld },
+        components: { Icon },
+        directives: {Test},
         props: {
             grade:{
                 type: Number,
@@ -34,7 +35,7 @@
         name: "Rating",
         data(){
             return{
-                stars: this.grade,
+                stars: null,
             }
         },
         methods:{
@@ -46,6 +47,9 @@
             counter(){
                 return `${this.stars} of ${this.maxStars}`
             }
+        },
+        created() {
+            this.stars = this.grade;
         }
     }
 </script>
