@@ -1,8 +1,8 @@
 <template>
     <div class="rating">
         <ul class="list">
-            <li v-test="{ id: 'star'}" v-for="star in maxStars" :key="star" :class="{'active': star <= stars}" class="star">
-                <icon @click="rate(star)" name="star"></icon>
+            <li @click="rate(star)" v-test="{ id: 'star'}" v-for="star in maxStars" :key="star" class="star" :class="{'active': star <= stars}">
+                <icon name="star"></icon>
             </li>
         </ul>
         <span v-if="hasCounter">{{ counter }}</span>
@@ -66,7 +66,7 @@
             margin: 0 0 5px 0;
             padding: 0;
             list-style-type: none;
-            &:hover .star {
+            &:hover .star{
                 color:  $active;
             }
         }
@@ -74,8 +74,9 @@
         .star {
             display: inline-block;
             cursor: pointer;
-            &:hover ~ &:not(.active) {
-                color: inherit;
+
+            &:hover ~ :not(.active) {
+                color: $in-active;
             }
         }
 

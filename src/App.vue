@@ -2,7 +2,7 @@
   <div id="app">
 <!--    <img alt="Vue logo" src="./assets/logo.png">-->
 <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <Rating :grade="3" :has-counter="false"/>
+    <Rating :grade="3" :has-counter="true"/>
   </div>
 </template>
 
