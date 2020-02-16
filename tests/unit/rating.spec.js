@@ -23,9 +23,9 @@ describe('Rating', ()=>{
     });
 
     it('adds `active` class on an inactive class when the user clicks it', ()=>{
-        const thirdStar = wrapper.findAll('.star').at(2)
-        thirdStar.trigger('click')
-        expect(thirdStar.classes()).toContain('active')
+        const thirdStar = wrapper.findAll('.star').at(2);
+        thirdStar.trigger('click');
+        expect(thirdStar.classes()).toContain('active');
     })
 });
 
