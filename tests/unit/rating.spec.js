@@ -23,7 +23,7 @@ describe('Rating', ()=>{
     });
 
     it('adds `active` class on an inactive class when the user clicks it', ()=>{
-        const thirdStar = wrapper.findAll('.star').at(2);
+        const thirdStar = wrapper.findAll('[data-test-id = "star"]').at(2);
         thirdStar.trigger('click');
         expect(thirdStar.classes()).toContain('active');
     })
